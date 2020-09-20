@@ -1,0 +1,21 @@
+.flex-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.flex-item {
+  border: 1px solid gray;
+  background: whtie;
+
+  font-size: 1em;
+  text-align: center;
+  flex-basis: auto;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.active {
+  background: greenyellow;
+}
