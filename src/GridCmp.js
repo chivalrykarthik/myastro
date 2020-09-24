@@ -1,6 +1,6 @@
 
 import React from "react";
-import buildRow from './util';
+import buildRow, { getHour, getDay } from './util';
 import './grid.css';
 
 const days = ["ஞா", "தி", "செ", "பு", "வி", "வெ", "ச"];
@@ -15,18 +15,26 @@ const planets = [
     "செ"
 ]
 const mapping = [0, 3, 6, 2, 5, 1, 4];
+const typeOfPlanet = [];
 /*
     mapping[day] = map[0]
     
 */
-const DataCmp = ({ day, horraiArr }) => {
+const DataCmp = ({ day, horraiArr, isToday }) => {
+    let hour = getHour();
+    let d = getDay();
+    let pod = hour > 12 ? 1 : 0; // to get the part of day from time
+    let convertedHour = hour > 12 ? hour % 12 : hour;
+    let rowNumber = convertedHour < 6 ? convertedHour + 6 : convertedHour - 6;
+
     const content = partOfDay.map((pd, k) => {
         return (
             <React.Fragment key={`p${k}`}>
                 <div className="flex-container">
                     <HeadCol day={day} pd={pd} />
                     {horraiArr[k].map((horrai, key) => {
-                        return <HourCol text={horrai} order={key + 2} key={`H${key}`} />
+                        let isActive = (isToday && rowNumber === key && pod === k) ? true : false;
+                        return <HourCol text={horrai} order={key + 2} key={`H${key}`} className={isActive ? 'active-horai' : ''} />
                     })}
 
                 </div>
@@ -78,9 +86,10 @@ function GridCmp() {
     const content = days.map((day, key) => {
         let firstRow = buildRow(planets, mapping[key]);
         let secondRow = buildRow(planets, planets.indexOf(firstRow[firstRow.length - 1]) + 1);
+        let today = getDay();
         return (
             <React.Fragment key={`D${key}`}>
-                <DataCmp day={day} horraiArr={[firstRow, secondRow]} />
+                <DataCmp day={day} horraiArr={[firstRow, secondRow]} today={today} isToday={today === key} />
             </React.Fragment>
         )
     });

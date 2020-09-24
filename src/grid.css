@@ -8,20 +8,32 @@
 .flex-item {
   border: 1px solid gray;
   background: whtie;
-
+  color: grey;
   font-size: 1em;
   text-align: center;
   flex-basis: auto;
   flex-grow: 1;
   flex-basis: 0;
 }
-
+.active-horai {
+  border: 2px solid green;
+}
 .active {
   background: greenyellow;
 }
 
 .short-text {
   display: none;
+}
+
+.sucess {
+  background: rgb(141, 236, 141);
+}
+.warning {
+  background: rgb(255, 255, 127);
+}
+.error {
+  background: rgb(253, 168, 168);
 }
 
 @media screen and (max-device-width: 1000px) {
