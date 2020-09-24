@@ -49,7 +49,7 @@ const HourCol = (props) => {
     let { order, text } = props;
     return (
         <>
-            <div className="flex-item" style={{ order: order }}>{text}</div>
+            <div className={`flex-item ${props.className}`} style={{ order: order }}>{text}</div>
         </>
     )
 }
@@ -65,8 +65,10 @@ const TableHeader = () => {
     return (
         <>
             <div className="flex-container">
-                <HourCol text="கிழமை" order={0} />
-                <HourCol text="காலம்" order={1} />
+                <HourCol className='long-text' text="கிழமை" order={0} />
+                <HourCol className='short-text' text="கி" order={0} />
+                <HourCol className='long-text' text="காலம்" order={1} />
+                <HourCol className='short-text' text="கா" order={1} />
                 {row}
             </div>
         </>

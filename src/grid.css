@@ -19,3 +19,16 @@
 .active {
   background: greenyellow;
 }
+
+.short-text {
+  display: none;
+}
+
+@media screen and (max-device-width: 1000px) {
+  .short-text {
+    display: inline-block !important;
+  }
+  .long-text {
+    display: none !important;
+  }
+}
