@@ -5,6 +5,7 @@ import './grid.css';
 
 const days = ["ஞா", "தி", "செ", "பு", "வி", "வெ", "ச"];
 const partOfDay = ['பகல்', 'இரவு'];
+const shortPartOfDay = ['ப', 'இ'];
 const planets = [
     "சூரி",
     "சுக்",
@@ -14,15 +15,23 @@ const planets = [
     "குரு",
     "செ"
 ]
+const shortPlanets = {
+    "சூரி": "சூ",
+    "சுக்": "சு",
+    "புத": "பு",
+    "சந்": "சந்",
+    "சனி": "ச",
+    "குரு": "கு",
+    "செ": "செ"
+}
 const mapping = [0, 3, 6, 2, 5, 1, 4];
-const typeOfPlanet = [];
+
 /*
     mapping[day] = map[0]
     
 */
 const DataCmp = ({ day, horraiArr, isToday }) => {
     let hour = getHour();
-    let d = getDay();
     let pod = hour > 12 ? 1 : 0; // to get the part of day from time
     let convertedHour = hour > 12 ? hour % 12 : hour;
     let rowNumber = convertedHour < 6 ? convertedHour + 6 : convertedHour - 6;
@@ -31,10 +40,16 @@ const DataCmp = ({ day, horraiArr, isToday }) => {
         return (
             <React.Fragment key={`p${k}`}>
                 <div className="flex-container">
-                    <HeadCol day={day} pd={pd} />
+                    <HeadCol day={day} pd={pd} className='long-text' />
+                    <HeadCol day={day} pd={shortPartOfDay[k]} className='short-text' />
                     {horraiArr[k].map((horrai, key) => {
                         let isActive = (isToday && rowNumber === key && pod === k) ? true : false;
-                        return <HourCol text={horrai} order={key + 2} key={`H${key}`} className={isActive ? 'active-horai' : ''} />
+                        return (
+                            <React.Fragment key={`h${key}`}>
+                                <HourCol text={horrai} order={key + 2} key={`LH${key}`} className={isActive ? 'active-horai long-text' : 'long-text'} />
+                                <HourCol text={shortPlanets[horrai]} order={key + 2} key={`SH${key}`} className={isActive ? 'active-horai short-text' : 'short-text'} />
+                            </React.Fragment>
+                        );
                     })}
 
                 </div>
@@ -44,11 +59,11 @@ const DataCmp = ({ day, horraiArr, isToday }) => {
     return content;
 }
 
-const HeadCol = ({ day, pd }) => {
+const HeadCol = ({ day, pd, className }) => {
     return (
         <>
-            <div className="flex-item" style={{ order: 1 }} >{day}</div>
-            <div className="flex-item" style={{ order: 2 }} >{pd}</div>
+            <div className={`flex-item ${className}`} style={{ order: 1 }} >{day}</div>
+            <div className={`flex-item ${className}`} style={{ order: 2 }} >{pd}</div>
         </>
     );
 };
@@ -88,8 +103,8 @@ function GridCmp() {
         let secondRow = buildRow(planets, planets.indexOf(firstRow[firstRow.length - 1]) + 1);
         let today = getDay();
         return (
-            <React.Fragment key={`D${key}`}>
-                <DataCmp day={day} horraiArr={[firstRow, secondRow]} today={today} isToday={today === key} />
+            <React.Fragment key={`F${key}`}>
+                <DataCmp day={day} horraiArr={[firstRow, secondRow]} today={today} isToday={today === key} key={`D${key}`} />
             </React.Fragment>
         )
     });
