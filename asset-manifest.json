@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/myastro/static/css/main.35f044e4.chunk.css",
+    "main.css": "/myastro/static/css/main.c1f3eb0d.chunk.css",
     "main.js": "/myastro/static/js/main.51732289.chunk.js",
     "main.js.map": "/myastro/static/js/main.51732289.chunk.js.map",
     "runtime-main.js": "/myastro/static/js/runtime-main.d17ad2c5.js",
@@ -8,15 +8,15 @@
     "static/js/2.ca3fd9ac.chunk.js": "/myastro/static/js/2.ca3fd9ac.chunk.js",
     "static/js/2.ca3fd9ac.chunk.js.map": "/myastro/static/js/2.ca3fd9ac.chunk.js.map",
     "index.html": "/myastro/index.html",
-    "precache-manifest.f5be9cdb959b0c3b87e90d8156144106.js": "/myastro/precache-manifest.f5be9cdb959b0c3b87e90d8156144106.js",
+    "precache-manifest.e6d56fc82bfb1ece1a89ba42aefede7d.js": "/myastro/precache-manifest.e6d56fc82bfb1ece1a89ba42aefede7d.js",
     "service-worker.js": "/myastro/service-worker.js",
-    "static/css/main.35f044e4.chunk.css.map": "/myastro/static/css/main.35f044e4.chunk.css.map",
+    "static/css/main.c1f3eb0d.chunk.css.map": "/myastro/static/css/main.c1f3eb0d.chunk.css.map",
     "static/js/2.ca3fd9ac.chunk.js.LICENSE.txt": "/myastro/static/js/2.ca3fd9ac.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.d17ad2c5.js",
     "static/js/2.ca3fd9ac.chunk.js",
-    "static/css/main.35f044e4.chunk.css",
+    "static/css/main.c1f3eb0d.chunk.css",
     "static/js/main.51732289.chunk.js"
   ]
 }
