@@ -3,7 +3,7 @@ import React from 'react';
 import { CssBaseline, Typography, Container } from '@material-ui/core'
 import Header from './header/Header';
 import GridCmp from './grid/GridCmp';
-import DayCmp from './description/DayCmp';
+import Description from './description/Description';
 import './App.css'
 
 let currentDate = new Date();
@@ -19,7 +19,7 @@ const App = () => {
             Timings
           </Typography>
           <GridCmp />
-          <DayCmp dt={currentDate} />
+          <Description dt={currentDate} />
         </div>
       </Container>
     </>

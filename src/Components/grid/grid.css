@@ -11,9 +11,8 @@
   color: grey;
   font-size: 1em;
   text-align: center;
-  flex-basis: auto;
-  flex-grow: 1;
   flex-basis: 0;
+  flex-grow: 1;
 }
 .active-horai {
   border: 2px solid green;
