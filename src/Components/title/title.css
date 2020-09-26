@@ -1,0 +1,13 @@
+.myastro-header {
+  width: 100%;
+  overflow: hidden;
+  margin: 0 0 5px 0;
+}
+
+.myastro-header-title {
+  float: left;
+}
+
+.myastro-header-btn {
+  float: right;
+}
