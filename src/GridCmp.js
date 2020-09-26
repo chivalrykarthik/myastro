@@ -32,7 +32,7 @@ const mapping = [0, 3, 6, 2, 5, 1, 4];
 */
 const DataCmp = ({ day, horraiArr, isToday }) => {
     let hour = getHour();
-    let pod = hour > 12 ? 1 : 0; // to get the part of day from time
+    let pod = (hour < 6 || hour >= 18) ? 1 : 0; // to get the part of day from time
     let convertedHour = hour > 12 ? hour % 12 : hour;
     let rowNumber = convertedHour < 6 ? convertedHour + 6 : convertedHour - 6;
 
