@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "985db665c1c98d4e4460bc3260663c8c",
+    "revision": "7b68577ab5b0a00188f0c9ab0e3e2bad",
     "url": "/myastro/index.html"
   },
   {
-    "revision": "c5a817d93e28b7b73cb0",
+    "revision": "460dc23bc9342347912a",
     "url": "/myastro/static/css/main.c1f3eb0d.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/myastro/static/js/2.ca3fd9ac.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "c5a817d93e28b7b73cb0",
-    "url": "/myastro/static/js/main.efcc865e.chunk.js"
+    "revision": "460dc23bc9342347912a",
+    "url": "/myastro/static/js/main.2ba33fa8.chunk.js"
   },
   {
     "revision": "68651a1d01ed20be74ff",
