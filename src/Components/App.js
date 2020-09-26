@@ -1,9 +1,9 @@
 import React from 'react';
 
 import { CssBaseline, Typography, Container } from '@material-ui/core'
-import Header from './Header';
-import GridCmp from './GridCmp';
-import DayCmp from './DayCmp';
+import Header from './header/Header';
+import GridCmp from './grid/GridCmp';
+import DayCmp from './description/DayCmp';
 import './App.css'
 
 let currentDate = new Date();

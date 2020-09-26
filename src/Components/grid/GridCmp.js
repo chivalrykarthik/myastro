@@ -1,35 +1,9 @@
 
 import React from "react";
-import buildRow, { getHour, getDay } from './util';
+import buildRow, { getHour, getDay } from '../../utils/shared';
+import { days, partOfDay, shortPartOfDay, planets, shortPlanets, mapping } from '../../utils/constants'
 import './grid.css';
 
-const days = ["ஞா", "தி", "செ", "பு", "வி", "வெ", "ச"];
-const partOfDay = ['பகல்', 'இரவு'];
-const shortPartOfDay = ['ப', 'இ'];
-const planets = [
-    "சூரி",
-    "சுக்",
-    "புத",
-    "சந்",
-    "சனி",
-    "குரு",
-    "செ"
-]
-const shortPlanets = {
-    "சூரி": "சூ",
-    "சுக்": "சு",
-    "புத": "பு",
-    "சந்": "சந்",
-    "சனி": "ச",
-    "குரு": "கு",
-    "செ": "செ"
-}
-const mapping = [0, 3, 6, 2, 5, 1, 4];
-
-/*
-    mapping[day] = map[0]
-    
-*/
 const DataCmp = ({ day, horraiArr, isToday }) => {
     let hour = getHour();
     let pod = (hour < 6 || hour >= 18) ? 1 : 0; // to get the part of day from time

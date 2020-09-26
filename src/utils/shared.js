@@ -11,6 +11,3 @@ const buildRow = (source, start = 0, ar = []) => {
 export const getHour = () => new Date().getHours();
 export const getDay = () => new Date().getDay();
 export default buildRow;
-// let ar = [0, 1, 2, 3, 4, 5, 6];
-
-// console.log(buildRow(ar, 6))
