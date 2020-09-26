@@ -41,7 +41,7 @@ const DataCmp = ({ day, horraiArr, isToday }) => {
             <React.Fragment key={`p${k}`}>
                 <div className="flex-container">
                     <HeadCol day={day} pd={pd} className='long-text' />
-                    <HeadCol day={day} pd={shortPartOfDay[k]} className='short-text' />
+                    <HeadCol day={day} pd={shortPartOfDay[k]} className='short-text grow-2' />
                     {horraiArr[k].map((horrai, key) => {
                         let isActive = (isToday && rowNumber === key && pod === k) ? true : false;
                         return (
@@ -89,7 +89,7 @@ const TableHeader = () => {
         <>
             <div className="flex-container">
                 <HourCol className='long-text' text="கிழமை" order={0} />
-                <HourCol className='short-text' text="கி" order={0} />
+                <HourCol className='short-text grow-2' text="கி" order={0} />
                 <HourCol className='long-text' text="காலம்" order={1} />
                 <HourCol className='short-text' text="கா" order={1} />
                 {row}

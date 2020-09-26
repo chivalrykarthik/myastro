@@ -44,3 +44,15 @@
     display: none !important;
   }
 }
+
+@media screen and (max-device-width: 1000px) {
+  .short-text {
+    display: inline-block !important;
+  }
+  .grow-2 {
+    flex-grow: 1;
+  }
+  .long-text {
+    display: none !important;
+  }
+}
