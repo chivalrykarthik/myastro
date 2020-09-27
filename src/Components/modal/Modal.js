@@ -78,7 +78,6 @@ export default function SimpleModal({ open, handleClose, setFind }) {
             >
                 <div style={modalStyle} className={classes.paper}>
                     <div style={{ float: "right" }} >
-                        <Btn onClick={handleClose} text="Search" />
                     </div>
                     <RadioCmp setFind={setFind} />
                 </div>
