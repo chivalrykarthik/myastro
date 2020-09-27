@@ -1,11 +1,11 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 
-const Btn = ({ onClick }) => {
+const Btn = ({ onClick, text }) => {
     return (
         <>
             <div>
-                <Button variant="contained" color="primary" onClick={onClick}>Find Time</Button>
+                <Button variant="contained" color="primary" onClick={onClick}>{text}</Button>
             </div>
         </>
     );

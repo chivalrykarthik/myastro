@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Radio from '@material-ui/core/Radio';
@@ -6,6 +6,7 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import { categories } from './../../utils/constants';
+import Btn from './../btn/Btn';
 
 function rand() {
     return Math.round(Math.random() * 20) - 10;
@@ -35,23 +36,25 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const RadioCmp = () => {
+const RadioCmp = ({ setFind }) => {
     const [value, setValue] = React.useState('');
 
     const handleChange = (event) => {
         setValue(event.target.value);
+        setFind(event.target.name);
     };
     const radioGrp = categories.map((category, key) => {
+
         return (
-            <>
-                <FormControlLabel value={key} control={<Radio color='primary' />} label={category} key={`r${key}`} />
-            </>
+            <Fragment key={'F' + key}>
+                <FormControlLabel value={category} control={<Radio name={key.toString()} color='primary' key={'K' + key} />} label={category} key={`r${key}`} />
+            </Fragment>
         );
     })
     return (
         <>
             <FormControl component="fieldset">
-                <RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange}>
+                <RadioGroup value={value} onChange={handleChange} key="G2">
                     {radioGrp}
                 </RadioGroup>
             </FormControl>
@@ -60,7 +63,7 @@ const RadioCmp = () => {
     )
 }
 
-export default function SimpleModal({ open, handleClose }) {
+export default function SimpleModal({ open, handleClose, setFind }) {
     const classes = useStyles();
     const [modalStyle] = useState(getModalStyle);
 
@@ -74,7 +77,10 @@ export default function SimpleModal({ open, handleClose }) {
                 aria-describedby="simple-modal-description"
             >
                 <div style={modalStyle} className={classes.paper}>
-                    <RadioCmp />
+                    <div style={{ float: "right" }} >
+                        <Btn onClick={handleClose} text="Search" />
+                    </div>
+                    <RadioCmp setFind={setFind} />
                 </div>
             </Modal>
         </div>

@@ -5,7 +5,7 @@ import Modal from './../modal/Modal';
 import './title.css';
 
 
-const Title = () => {
+const Title = ({ setFind }) => {
     const [open, setOpen] = useState(false);
 
     const handleOpen = () => {
@@ -22,8 +22,8 @@ const Title = () => {
                     <Typography variant="h6" component="h6">Timings</Typography>
                 </div>
                 <div className='myastro-header-btn'>
-                    <Btn onClick={handleOpen} />
-                    <Modal open={open} handleClose={handleClose} />
+                    <Btn onClick={handleOpen} text="Choose" />
+                    <Modal open={open} handleClose={handleClose} setFind={setFind} />
                 </div>
             </div>
         </>

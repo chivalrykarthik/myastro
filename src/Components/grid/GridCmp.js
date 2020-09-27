@@ -1,10 +1,10 @@
 
 import React from "react";
 import buildRow, { getHour, getDay } from '../../utils/shared';
-import { days, partOfDay, shortPartOfDay, planets, shortPlanets, mapping } from '../../utils/constants'
+import { days, partOfDay, shortPartOfDay, planets, shortPlanets, mapping, categoryMapping } from '../../utils/constants'
 import './grid.css';
 
-const DataCmp = ({ day, horraiArr, isToday }) => {
+const DataCmp = ({ day, horraiArr, isToday, find }) => {
     let hour = getHour();
     let pod = (hour < 6 || hour >= 18) ? 1 : 0; // to get the part of day from time
     let convertedHour = hour > 12 ? hour % 12 : hour;
@@ -18,10 +18,14 @@ const DataCmp = ({ day, horraiArr, isToday }) => {
                     <HeadCol day={day} pd={shortPartOfDay[k]} className='short-text grow-2' />
                     {horraiArr[k].map((horrai, key) => {
                         let isActive = (isToday && rowNumber === key && pod === k) ? true : false;
+                        let addFindClass = categoryMapping[horrai].do.includes(parseInt(find)) ? ` hightlight` : ``;
+                        console.log("addFindClass====", addFindClass)
+                        console.log("find====", find)
+                        console.log("cc====", categoryMapping[horrai].do.includes(find))
                         return (
                             <React.Fragment key={`h${key}`}>
-                                <HourCol text={horrai} order={key + 2} key={`LH${key}`} className={isActive ? 'active-horai long-text' : 'long-text'} />
-                                <HourCol text={shortPlanets[horrai]} order={key + 2} key={`SH${key}`} className={isActive ? 'active-horai short-text' : 'short-text'} />
+                                <HourCol text={horrai} order={key + 2} key={`LH${key}`} className={isActive ? `active-horai long-text${addFindClass}` : `long-text${addFindClass}`} />
+                                <HourCol text={shortPlanets[horrai]} order={key + 2} key={`SH${key}`} className={isActive ? `active-horai short-text${addFindClass}` : `short-text${addFindClass}`} />
                             </React.Fragment>
                         );
                     })}
@@ -71,14 +75,15 @@ const TableHeader = () => {
         </>
     )
 }
-function GridCmp() {
+function GridCmp({ find }) {
+    console.log("find====", find)
     const content = days.map((day, key) => {
         let firstRow = buildRow(planets, mapping[key]);
         let secondRow = buildRow(planets, planets.indexOf(firstRow[firstRow.length - 1]) + 1);
         let today = getDay();
         return (
             <React.Fragment key={`F${key}`}>
-                <DataCmp day={day} horraiArr={[firstRow, secondRow]} today={today} isToday={today === key} key={`D${key}`} />
+                <DataCmp day={day} horraiArr={[firstRow, secondRow]} today={today} isToday={today === key} key={`D${key}`} find={find} />
             </React.Fragment>
         )
     });

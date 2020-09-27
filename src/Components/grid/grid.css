@@ -15,10 +15,21 @@
   flex-grow: 1;
 }
 .active-horai {
-  border: 2px solid green;
+  background: yellow;
+  color: green;
 }
 .active {
   background: greenyellow;
+}
+/*
+background: rgb(94, 224, 94);
+  color: green;*/
+.hightlight {
+  background: rgb(94, 224, 94);
+  color: green;
+}
+.hightlight.active-horai {
+  border: 2px solid green;
 }
 
 .short-text {
