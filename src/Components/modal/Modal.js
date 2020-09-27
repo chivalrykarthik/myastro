@@ -19,7 +19,7 @@ function getModalStyle() {
         top: `${top}%`,
         left: `${left}%`,
         height: '50%',
-        overflow: 'scroll',
+        overflow: 'auto',
         transform: `translate(-${top}%, -${left}%)`,
     };
 }
@@ -74,9 +74,7 @@ export default function SimpleModal({ open, handleClose }) {
                 aria-describedby="simple-modal-description"
             >
                 <div style={modalStyle} className={classes.paper}>
-                    <h2 id="simple-modal-title">Choose</h2>
                     <RadioCmp />
-
                 </div>
             </Modal>
         </div>
