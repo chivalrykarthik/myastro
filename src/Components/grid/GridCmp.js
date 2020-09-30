@@ -19,9 +19,6 @@ const DataCmp = ({ day, horraiArr, isToday, find }) => {
                     {horraiArr[k].map((horrai, key) => {
                         let isActive = (isToday && rowNumber === key && pod === k) ? true : false;
                         let addFindClass = categoryMapping[horrai].do.includes(parseInt(find)) ? ` hightlight` : ``;
-                        console.log("addFindClass====", addFindClass)
-                        console.log("find====", find)
-                        console.log("cc====", categoryMapping[horrai].do.includes(find))
                         return (
                             <React.Fragment key={`h${key}`}>
                                 <HourCol text={horrai} order={key + 2} key={`LH${key}`} className={isActive ? `active-horai long-text${addFindClass}` : `long-text${addFindClass}`} />
@@ -76,7 +73,6 @@ const TableHeader = () => {
     )
 }
 function GridCmp({ find }) {
-    console.log("find====", find)
     const content = days.map((day, key) => {
         let firstRow = buildRow(planets, mapping[key]);
         let secondRow = buildRow(planets, planets.indexOf(firstRow[firstRow.length - 1]) + 1);
