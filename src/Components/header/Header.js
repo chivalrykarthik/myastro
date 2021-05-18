@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { AppBar, Toolbar, Typography, Box } from '@material-ui/core'
-
+const getDate = () => {
+    const dt = new Date();
+    const setLen = (str) => str.toString().length <= 1 ? '0' + str : str;
+    return `${dt.getFullYear()}-${setLen(dt.getMonth() + 1)}-${setLen(dt.getDate())}`
+}
 const getSunrise = async () => {
     try {
-        const resp = await fetch('https://api.sunrise-sunset.org/json?lat=12.782370&lng=80.217590&date=today');
+
+        const resp = await fetch(`https://api.sunrise-sunset.org/json?lat=12.782370&lng=80.217590&date=${getDate()}`);
         const result = await resp.json();
         return result;
     } catch (e) {
