@@ -60,7 +60,7 @@ const Header = () => {
                     <Box display='flex' flexGrow={1}>
                         <Typography variant="h6" >MyAstro</Typography>
                     </Box>
-                    <div>
+                    <div style={{ "min-width": '8rem' }}>
                         <Typography variant="h6" >Sunrise:</Typography>
                         <Typography variant="h6" >{processTime(dt)}</Typography>
                     </div>
