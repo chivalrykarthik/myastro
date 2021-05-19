@@ -52,15 +52,14 @@ const Header = () => {
         };
         getDt();
     }, []);
+    console.log(dt);
     return (
         <>
-
             <AppBar position="static">
                 <Toolbar>
                     <Box display='flex' flexGrow={1}>
                         <Typography variant="h6" >MyAstro</Typography>
                     </Box>
-                    <Typography variant="h6" >Sunrise GMT: {dt}</Typography>
                     <Typography variant="h6" >Sunrise: {processTime(dt)}</Typography>
                 </Toolbar>
             </AppBar>
