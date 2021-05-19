@@ -18,14 +18,21 @@ const getSunrise = async () => {
 
 }
 
-const processTime = (t) => {
-    const [h, m, s] = t.split(/[:|\s]/);
-    const dt = new Date(new Date().toLocaleString(undefined, { timeZone: 'UTC' }));
-    console.log(dt);
-    dt.setHours(h);
-    dt.setMinutes(m);
-    dt.setSeconds(s);
-
+const processTime = (dt) => {
+    let [h, m, s, t] = dt.split(/[:\s]/)
+    let cm = parseInt(m) + 30;
+    let ch = parseInt(h) + 5
+    m = cm;
+    if (cm >= 60) {
+        ch++;
+        m = cm % 60
+    }
+    m = m.toString().length < 2 ? `0${m}` : m;
+    if (ch > 12) {
+        h = ch % 12;
+    }
+    h = h.toString().length < 2 ? `0${h}` : h;
+    return `${h}:${m}:${s} ${t}`;
 }
 
 const Header = () => {
@@ -51,7 +58,8 @@ const Header = () => {
                     <Box display='flex' flexGrow={1}>
                         <Typography variant="h6" >MyAstro</Typography>
                     </Box>
-                    <Typography variant="h6" >Sunrise: {dt}</Typography>
+                    <Typography variant="h6" >Sunrise GMT: {dt}</Typography>
+                    <Typography variant="h6" >Sunrise: {processTime(dt)}</Typography>
                 </Toolbar>
             </AppBar>
         </>
