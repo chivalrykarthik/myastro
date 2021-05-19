@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { AppBar, Toolbar, Typography, Box } from '@material-ui/core'
+import { AppBar, Toolbar, Typography, Box } from '@material-ui/core';
+const defaultValue = 'Loading ...';
 const getDate = () => {
     const dt = new Date();
     const setLen = (str) => str.toString().length <= 1 ? '0' + str : str;
@@ -19,6 +20,7 @@ const getSunrise = async () => {
 }
 
 const processTime = (dt) => {
+    if (dt === defaultValue) return dt;
     let [h, m, s, t] = dt.split(/[:\s]/)
     let cm = parseInt(m) + 30;
     let ch = parseInt(h) + 5
@@ -36,7 +38,7 @@ const processTime = (dt) => {
 }
 
 const Header = () => {
-    const [dt, setDt] = useState('Loading...');
+    const [dt, setDt] = useState(defaultValue);
     useEffect(() => {
         const getDt = async () => {
             try {
