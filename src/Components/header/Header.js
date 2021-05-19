@@ -60,7 +60,10 @@ const Header = () => {
                     <Box display='flex' flexGrow={1}>
                         <Typography variant="h6" >MyAstro</Typography>
                     </Box>
-                    <Typography variant="h6" >Sunrise: {processTime(dt)}</Typography>
+                    <div>
+                        <Typography variant="h6" >Sunrise:</Typography>
+                        <Typography variant="h6" >{processTime(dt)}</Typography>
+                    </div>
                 </Toolbar>
             </AppBar>
         </>
