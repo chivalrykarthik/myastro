@@ -61,8 +61,8 @@ const Header = () => {
                         <Typography variant="h6" >MyAstro</Typography>
                     </Box>
                     <div style={{ "min-width": '8rem' }}>
-                        <Typography variant="h6" >Sunrise:</Typography>
-                        <Typography variant="h6" >{processTime(dt)}</Typography>
+                        <p>சூரிய உதயம்:</p>
+                        <p>{processTime(dt)}</p>
                     </div>
                 </Toolbar>
             </AppBar>

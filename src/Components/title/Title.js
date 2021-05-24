@@ -19,10 +19,10 @@ const Title = ({ setFind }) => {
         <>
             <div className='myastro-header'>
                 <div className='myastro-header-title'>
-                    <Typography variant="h6" component="h6">Timings</Typography>
+                    <Typography variant="h6" component="h6">ஹோரை அட்டவணை</Typography>
                 </div>
                 <div className='myastro-header-btn'>
-                    <Btn onClick={handleOpen} text="Choose" />
+                    <Btn onClick={handleOpen} text="தேர்வு செய்" />
                     <Modal open={open} handleClose={handleClose} setFind={setFind} />
                 </div>
             </div>
